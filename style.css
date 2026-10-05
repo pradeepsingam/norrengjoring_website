@@ -1,0 +1,167 @@
+/* Measurements taken from the screen recording (Edge at 125% zoom => 1 CSS px = 1.25 video px) */
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;font-family:'Fira Sans Extra Condensed',sans-serif;font-size:16px;line-height:27px;color:#666;background:#fff;overflow-x:hidden}
+img{border:0;vertical-align:middle}
+a{color:inherit;text-decoration:none}
+
+/* ---------- HERO ---------- */
+.hero{position:relative;height:780px;background:linear-gradient(90deg,#aea4a8 0%,#cfcfcf 100%);overflow:hidden}
+.hero .layer{position:absolute;left:calc(50% - 20px);transform:translateX(-50%);text-align:center;white-space:nowrap}
+.hero h1{top:186px;margin:0;font-size:67px;line-height:68px;font-weight:600;color:#074aa3}
+.hero .tag{top:279px;margin:0;font-size:28px;line-height:30px;font-style:italic;font-weight:400;color:#fff;left:calc(50% - 17px)}
+.hero .btn{top:338px;left:calc(50% - 31px);display:flex;align-items:center;gap:15px;height:58px;padding:0 37px;background:#074aa3;color:#fff;
+font-size:19px;font-weight:500;letter-spacing:.2px}
+.hero .btn svg{width:22px;height:14px}
+.hero .badge{position:absolute;left:620px;top:546px;width:150px;height:auto}
+
+/* ---------- TJENESTER ---------- */
+.services{height:408px;background:#fff;text-align:center;padding-top:94px}
+.services h2{margin:0;font-size:50px;line-height:56px;font-weight:600;text-transform:uppercase;color:#121116}
+.tiles{display:grid;grid-template-columns:190fr 190fr 201fr 201fr 201fr 201fr 201fr;gap:12px;padding:0 15px;margin-top:27px}
+.tile{height:128px;background:#f4f4f4;display:flex;align-items:center;justify-content:center;transition:box-shadow .3s,background .3s}
+.tile:hover{background:#f4f4f4;box-shadow:0 0 14px rgba(0,0,0,.3)}
+.tile img{display:block}
+
+/* ---------- WELCOME (image section) ---------- */
+.welcome{position:relative;height:1007px;display:flex;align-items:center;justify-content:center;text-align:center;
+background:#1a1a1a url("https://www.norrengjoring.no/wp-content/uploads/2024/02/Byggrengjoring-2-min.png") center/cover no-repeat}
+.welcome::before{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(0,0,0,.75),rgba(0,0,0,.55) 1%,rgba(0,0,0,.5) 100%)}
+.welcome::after{content:"";position:absolute;left:0;top:0;bottom:0;width:14px;background:linear-gradient(90deg,rgba(0,0,0,.55),transparent)}
+.welcome .in{position:relative;z-index:1;width:740px;max-width:90%}
+.welcome h3{margin:0 0 8px;font-size:50px;line-height:56px;font-weight:500;text-transform:uppercase;color:#fff;white-space:nowrap}
+.welcome p{margin:0;padding:0 28px;font-size:20px;line-height:28px;color:#fff}
+
+/* ---------- FOOTER ---------- */
+footer {
+  background: #fdfdfd;
+  color: #777;
+  padding: 60px 20px 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border-top: 1px solid #eee;
+  font-family: Arial, sans-serif;
+}
+.footer-inner {
+  display: flex;
+  justify-content: space-between;
+  gap: 30px;
+  width: 100%;
+  max-width: 1200px;
+  margin-bottom: 40px;
+}
+.footer-col {
+  display: flex;
+  flex-direction: column;
+  font-size: 13px;
+  line-height: 22px;
+}
+.footer-col h4 {
+  margin: 0 0 20px;
+  font-size: 13px;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: #111;
+  letter-spacing: 0.5px;
+}
+.footer-logo {
+  width: 160px;
+  margin-bottom: 20px;
+}
+.footer-address {
+  margin: 0 0 20px;
+  max-width: 200px;
+}
+.footer-socials {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-weight: 700;
+  color: #111;
+  font-size: 14px;
+}
+.footer-socials svg {
+  width: 16px;
+  height: 16px;
+  stroke: #888;
+  cursor: pointer;
+  transition: stroke 0.2s;
+}
+.footer-socials svg:hover {
+  stroke: #111;
+}
+.footer-phone {
+  font-size: 24px;
+  font-weight: 700;
+  color: #0000ee;
+  margin-bottom: 12px;
+  text-decoration: none;
+  letter-spacing: -0.5px;
+}
+.footer-email {
+  color: #0000ee;
+  text-decoration: none;
+}
+.footer-col a:not(.footer-phone):not(.footer-email) {
+  color: #777;
+  margin-bottom: 12px;
+  text-decoration: none;
+  transition: color 0.2s;
+}
+.footer-col a:not(.footer-phone):not(.footer-email):hover {
+  color: #111;
+}
+.footer-bottom {
+  width: 100%;
+  max-width: 1200px;
+  border-top: 1px solid #eee;
+  padding-top: 20px;
+  text-align: center;
+  font-size: 12px;
+  color: #999;
+  margin: 0;
+}
+.footer-bottom p {
+  margin: 0;
+}
+
+/* ---------- FLOATING ---------- */
+.top{position:fixed;right:56px;bottom:70px;width:64px;height:64px;background:#121116;border:0;cursor:pointer;z-index:60;
+display:flex;align-items:center;justify-content:center;opacity:0;visibility:hidden;transition:opacity .4s,visibility .4s}
+.top.show{opacity:1;visibility:visible}
+.top svg{width:18px;height:22px}
+.cookie{position:fixed;left:20px;bottom:16px;width:44px;height:44px;border:0;padding:0;background:none;cursor:pointer;z-index:61;border-radius:50%}
+.cookie img{width:100%;height:100%;display:block}
+.bar{position:fixed;left:0;right:0;bottom:0;z-index:70;background:#121116;color:#fff;padding:18px 40px 18px 90px;display:none;align-items:center;justify-content:space-between;gap:20px}
+.bar.open{display:flex}.bar button{background:#074aa3;color:#fff;border:0;padding:10px 24px;font:inherit;cursor:pointer}
+
+@media(max-width:900px){
+.hero h1{font-size:44px;white-space:normal;width:90%}.hero .layer{left:50%}.hero .tag{left:50%;font-size:22px}.hero .btn{left:50%}
+.hero .badge{left:50%;transform:translateX(-50%)}
+.tiles{grid-template-columns:repeat(3,1fr)}.services{height:auto;padding-bottom:40px}
+.welcome{height:auto;min-height:700px;padding:60px 0}.welcome h3{white-space:normal;font-size:34px;line-height:40px}
+.logo2{width:100%}.row{flex-direction:column;align-items:flex-start}
+.footer-inner{flex-direction:column;gap:40px}
+}
+
+/* ---------- COOKIE CONSENT POPUP (matched to recording) ---------- */
+.cookie .tip{position:absolute;left:54px;top:50%;transform:translate(-6px,-50%);background:#4a4566;color:#fff;font:500 15px/1 'Fira Sans Extra Condensed',sans-serif;white-space:nowrap;padding:10px 14px;border-radius:6px;opacity:0;pointer-events:none;transition:opacity .2s,transform .2s}
+.cookie .tip:before{content:"";position:absolute;left:-6px;top:50%;margin-top:-6px;border:6px solid transparent;border-left:0;border-right-color:#4a4566}
+.cookie:hover .tip,.cookie:focus-visible .tip{opacity:1;transform:translate(0,-50%)}
+.ov{position:fixed;inset:0;z-index:100;background:rgba(0,0,0,.55);display:flex;align-items:center;justify-content:center;padding:16px;animation:fi .3s}.ov[hidden]{display:none}
+.dlg{background:#fff;color:#212121;width:min(880px,100%);height:min(590px,74vh);display:flex;flex-direction:column;border-radius:8px;box-shadow:0 10px 40px rgba(0,0,0,.35);animation:pop .35s}
+@keyframes fi{from{opacity:0}}@keyframes pop{from{opacity:0;transform:translateY(20px) scale(.98)}}
+.dh{display:flex;justify-content:space-between;align-items:center;padding:0 22px;height:54px;border-bottom:1px solid #ececec;flex:none}.dh h2{margin:0;font-size:18px;line-height:28px;font-weight:700;color:#212121}
+.x{background:none;border:0;cursor:pointer;padding:8px;line-height:0}.x:hover svg{stroke:#111}
+.db{padding:6px 28px 8px 24px;overflow-y:scroll;flex:1;font-size:16px;line-height:30px;scrollbar-width:thin}.db p{margin:14px 0 0;color:#212121}
+.clamp{overflow:hidden;display:-webkit-box;-webkit-line-clamp:1;-webkit-box-orient:vertical}.clamp.open{display:block}
+.sm{background:none;border:0;color:#1863dc;font:inherit;cursor:pointer;padding:0;margin:0 0 12px}.sm:hover{text-decoration:underline}
+.cat{border-top:1px solid #ececec;padding:14px 0 12px}.ch{display:flex;justify-content:space-between;align-items:center}
+.chev{display:flex;align-items:center;gap:14px;background:none;border:0;padding:0;cursor:pointer;font:700 17px 'Fira Sans Extra Condensed',sans-serif;color:#212121}.chev svg{transition:transform .25s}.cat.open .chev svg{transform:rotate(90deg)}
+.cat p{margin:8px 0 0 24px;line-height:30px}.always{color:#008000;font-weight:700;font-size:16px}
+.panel{margin:0 0 0 24px;max-height:0;overflow:hidden;transition:max-height .3s}.cat.open .panel{max-height:120px}
+.empty{background:#f4f4f4;border-radius:6px;padding:10px 14px;margin-top:10px;font-size:15px;color:#212121}
+.df{display:flex;gap:10px;padding:18px 24px 20px;flex:none}.df button{flex:1;height:46px;font:700 17px 'Fira Sans Extra Condensed',sans-serif;border-radius:3px;cursor:pointer;border:2px solid #1863dc;transition:background .2s}.df .w{flex:1.25}
+.df .o{background:#fff;color:#1863dc}.df .o:hover{background:#eaf1fd}.df .f{background:#1f5fd6;color:#fff}.df .f:hover{background:#114db0}
+@media(max-width:600px){.df{flex-direction:column}.dlg{height:88vh}.cookie .tip{display:none}}
