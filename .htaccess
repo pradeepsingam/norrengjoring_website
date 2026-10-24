@@ -1,0 +1,14 @@
+<IfModule mod_rewrite.c>
+RewriteEngine On
+RewriteRule ^om-oss/?$ om-oss.html [R=301,L]
+RewriteRule ^kontakt/?$ kontakt.html [R=301,L]
+RewriteRule ^daglig-renhold/?$ daglig-renhold.html [R=301,L]
+RewriteRule ^hovedreingjoring/?$ hovedreingjoring.html [R=301,L]
+RewriteRule ^flyttevask/?$ flyttevask.html [R=301,L]
+RewriteRule ^dodbo/?$ dodbo.html [R=301,L]
+RewriteRule ^puss-og-rens/?$ puss-og-rens.html [R=301,L]
+RewriteRule ^byggrengjoring-2/?$ byggrengjoring-2.html [R=301,L]
+RewriteRule ^skuring-og-boning-av-gulv/?$ skuring-og-boning-av-gulv.html [R=301,L]
+RewriteRule ^our-team-7-2/?$ cookie-policy.html [R=301,L]
+RewriteRule ^personvern/?$ personvern.html [R=301,L]
+</IfModule>

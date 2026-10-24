@@ -1,5 +1,5 @@
 /* Extra styles for inner pages (works together with your existing style.css) */
-@import url('https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600&display=swap');
+
 .page-hero{position:relative;height:100vh;min-height:560px;display:flex;align-items:flex-start;justify-content:center;text-align:center;
 background:#1a1a1a center/cover no-repeat}
 .page-hero h1{margin:0;padding:0 20px;margin-top:30vh;font-family:'Fira Sans Extra Condensed',sans-serif;font-size:9.6vw;line-height:1;font-weight:700;text-transform:uppercase;color:#fff;letter-spacing:-.5px}

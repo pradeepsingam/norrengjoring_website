@@ -1,49 +1,57 @@
 <!DOCTYPE html>
 <html lang="no"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Kontakt - Nor Rengjøring AS</title>
-<link rel="icon" href="https://www.norrengjoring.no/wp-content/uploads/2022/01/cropped-NorRengjoring_logo-1-270x270.png">
-<link href="https://fonts.googleapis.com/css2?family=Fira+Sans+Extra+Condensed:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="style.css"><link rel="stylesheet" href="pages.css"></head>
+<link rel="icon" href="images/cropped-NorRengjoring_logo-1-270x270.png">
+<link rel="stylesheet" href="fonts.css">
+<link rel="stylesheet" href="style.css"><link rel="stylesheet" href="pages.css"><link rel="stylesheet" href="shared.css"></head>
 <body>
-<section class="page-hero" style="background-image:url('images/banner.jpg'),url('https://www.norrengjoring.no/wp-content/uploads/2024/02/KontaktOss-scaled-3.jpg');background-size:cover;background-position:center"><h1>Kontakt oss</h1></section>
+<a class="skip-link" href="#main-content">Hopp til innhold</a>
+<header class="site-header"><div class="header-inner">
+<a class="brand" href="index.html" aria-label="Nor Rengjøring AS – Hjem"><img src="images/NorRengjoring_logo-removebg-preview-770x292.png" alt="Nor Rengjøring AS" width="160" height="61"></a>
+<button class="menu-toggle" type="button" aria-controls="site-navigation" aria-expanded="false">Meny <span aria-hidden="true">☰</span></button>
+<nav id="site-navigation" aria-label="Hovedmeny"><a href="index.html">Hjem</a><a href="om-oss.html">Om oss</a>
+<details class="service-menu"><summary>Tjenester</summary><div class="service-links"><a href="daglig-renhold.html">Daglig renhold</a><a href="hovedreingjoring.html">Hovedrengjøring</a><a href="flyttevask.html">Flyttevask</a><a href="dodbo.html">Dødsbo</a><a href="puss-og-rens.html">Puss og rens</a><a href="byggrengjoring-2.html">Byggrengjøring</a><a href="skuring-og-boning-av-gulv.html">Skuring og boning av gulv</a></div></details>
+<a href="cookie-policy.html">Informasjonskapsler</a><a class="header-contact" href="kontakt.html">Kontakt oss</a></nav>
+</div></header>
+<main id="main-content">
+<section class="page-hero" style="background-image:url('images/banner.jpg'),url('images/KontaktOss-scaled-3.jpg');background-size:cover;background-position:center"><h1>Kontakt oss</h1></section>
 <section class="hc"><div class="hc-wrap">
 <div class="hc-about">
 <div class="hc-card hc-text"><h2>Send oss en melding</h2>
-<p>Fyll ut skjemaet, så tar vi kontakt med deg så snart som mulig. Du kan også bestille en gratis, uforpliktende befaring.</p>
-<form class="ct-form" id="ctf">
-<label>Navn<input type="text" name="navn" required></label>
-<label>E-post<input type="email" name="epost" required></label>
-<label>Telefon<input type="tel" name="tlf"></label>
-<label>Melding<textarea name="melding" rows="5" required></textarea></label>
-<button type="submit" class="hc-btn">Sende inn</button>
-</form></div>
+<p>Send oss en melding, så tar vi kontakt så snart som mulig. Du kan også ringe oss for en gratis, uforpliktende befaring.</p>
+<form class="ct-form" id="ctf" action="contact.php" method="post">
+<div class="form-trap" aria-hidden="true"><label>Nettside<input type="text" name="website" tabindex="-1" autocomplete="off"></label></div>
+<label>Navn<input type="text" name="navn" maxlength="100" autocomplete="name" required></label>
+<label>E-post<input type="email" name="epost" maxlength="254" autocomplete="email" required></label>
+<label>Telefon<input type="tel" name="tlf" maxlength="60" autocomplete="tel"></label>
+<label>Emne<input type="text" name="emne" maxlength="120"></label>
+<label>Melding<textarea name="melding" maxlength="5000" rows="5" required></textarea></label>
+<button type="submit" class="hc-btn">Send melding</button>
+<p id="contact-status" class="contact-status" role="status" aria-live="polite"></p>
+<noscript><p>Skjemaet krever JavaScript. Send e-post til <a href="mailto:post@norrengjoring.no">post@norrengjoring.no</a> eller ring +47 900 12 461.</p></noscript></form></div>
 <div class="hc-card hc-text ct-info"><h2>Kontaktinformasjon</h2>
 <p><b>Nor Rengjøring AS</b><br>Hamborggata 16<br>3018 Drammen</p>
 <p>Telefon: <a href="tel:+4790012461">+47 900 12 461</a><br>E-post: <a href="mailto:post@norrengjoring.no">post@norrengjoring.no</a><br>Mandag - Fredag: 07:00-17:00</p>
-<div class="ct-map"><iframe title="Kart" loading="lazy" referrerpolicy="no-referrer-when-downgrade" src="https://www.google.com/maps?q=Hamborggata+16,+3018+Drammen&amp;output=embed"></iframe></div>
+<div class="ct-map" data-map></div>
+<p><a href="https://www.google.com/maps?q=Hamborggata+16,+3018+Drammen" target="_blank" rel="noopener">Åpne veibeskrivelse i Google Maps</a></p>
 </div></div>
 </div></section>
-<script>document.getElementById('ctf').addEventListener('submit',function(e){e.preventDefault();var f=e.target,b='Navn: '+f.navn.value+'\nE-post: '+f.epost.value+'\nTelefon: '+f.tlf.value+'\n\n'+f.melding.value;location.href='mailto:post@norrengjoring.no?subject='+encodeURIComponent('Henvendelse fra nettsiden')+'&body='+encodeURIComponent(b)});</script>
+
+</main>
 <footer>
   <div class="footer-inner">
     <div class="footer-col" style="max-width: 250px;">
-      <img class="footer-logo" src="https://www.norrengjoring.no/wp-content/uploads/2022/01/NorRengjoring_logo-removebg-preview-770x292.png" alt="Nor Rengjøring AS">
+      <a href="index.html" aria-label="Til forsiden"><img class="footer-logo" src="images/NorRengjoring_logo-removebg-preview-770x292.png" alt="Nor Rengjøring AS"></a>
       <p class="footer-address">Hamborggata 16<br>3018 Drammen</p>
-      <div class="footer-socials">
-        Follow us 
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path></svg>
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"></path></svg>
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33 2.78 2.78 0 0 0 1.94 2c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2 29 29 0 0 0 .46-5.33 29 29 0 0 0-.46-5.33z"></path><polygon points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02"></polygon></svg>
-      </div>
+
     </div>
-    
+
     <div class="footer-col">
-      <h4>NEED HELP?</h4>
+      <h4>KONTAKT</h4>
       <a href="tel:+4790012461" class="footer-phone">+47 900 12 461</a>
       <p style="margin:0 0 8px">Mandag - Fredag: 07:00-17:00<br>Email: <a href="mailto:post@norrengjoring.no" class="footer-email">post@norrengjoring.no</a></p>
     </div>
-    
+
     <div class="footer-col">
       <h4>TJENESTER</h4>
       <a href="daglig-renhold.html">Daglig renhold</a>
@@ -57,6 +65,7 @@
       <a href="kontakt.html">Kontakt Oss</a>
       <a href="om-oss.html">Om oss</a>
       <a href="personvern.html">Personvernerklæring</a>
+      <a href="cookie-policy.html">Informasjonskapsler</a>
     </div>
 
     <div class="footer-col">
@@ -67,24 +76,20 @@
       <p style="margin-top:12px;margin-bottom:0">Org: 986639799</p>
     </div>
   </div>
-  
+
   <div class="footer-bottom">
-    <p>© 2024 <b>Nor Rengjøring AS</b> All rights reserved. Powered by <b>EAT-NOW.NO</b></p>
+    <p>© <span data-year>2026</span> <a href="index.html"><b>Nor Rengjøring AS</b></a> All rights reserved. Powered by <a href="https://eat-now.no/"><b>EAT-NOW.NO</b></a></p>
   </div>
 </footer>
-<button class="top" id="top" aria-label="Til toppen" onclick="window.scrollTo({top:0,behavior:'smooth'})"><svg viewBox="0 0 18 22" fill="none" stroke="#fff" stroke-width="1.6"><path d="M9 21V2M2 9l7-7 7 7"/></svg></button>
-<button class="cookie" id="ckb" aria-haspopup="dialog" aria-label="Consent Preferences"><img src="images/cookie.png" alt=""><span class="tip">Consent Preferences</span></button>
-<div class="ov" id="ov" hidden><div class="dlg" role="dialog" aria-modal="true" aria-labelledby="dt"><div class="dh"><h2 id="dt">Customize Consent Preferences</h2><button class="x" id="dx" aria-label="Close"><svg viewBox="0 0 12 12" width="12" height="12" stroke="#666" stroke-width="1.4"><path d="M1 1l10 10M11 1L1 11"/></svg></button></div>
-<div class="db"><p>We use cookies to help you navigate efficiently and perform certain functions. You will find detailed information about all cookies under each consent category below.</p><p class="clamp" id="cl">The cookies that are categorized as "Necessary" are stored on your browser as they are essential for enabling the basic functionalities of the site. We also use third-party cookies that help us analyze how you use this website, store your preferences, and provide content and advertisements that are relevant to you. These cookies are only stored in your browser with your prior consent. You can choose to enable or disable some or all of these cookies, but disabling some of them may affect your browsing experience.</p><button class="sm" id="sm" aria-expanded="false">Show more</button><div class="cat"><div class="ch"><button class="chev" aria-expanded="false" aria-controls="p0"><svg viewBox="0 0 10 10" width="10" height="10" fill="none" stroke="#212121" stroke-width="1.4"><path d="M3 1l4 4-4 4"/></svg><span>Necessary</span></button><span class="always">Always Active</span></div><p>Necessary cookies are required for the basic features of this site, such as secure log-in or remembering your consent choices. They do not store any personally identifiable data.</p><div class="panel" id="p0"><div class="empty">No cookies to display.</div></div></div><div class="cat"><div class="ch"><button class="chev" aria-expanded="false" aria-controls="p1"><svg viewBox="0 0 10 10" width="10" height="10" fill="none" stroke="#212121" stroke-width="1.4"><path d="M3 1l4 4-4 4"/></svg><span>Functional</span></button></div><p>Functional cookies help perform certain functions, such as sharing website content on social media, collecting feedback and other third-party features.</p><div class="panel" id="p1"><div class="empty">No cookies to display.</div></div></div><div class="cat"><div class="ch"><button class="chev" aria-expanded="false" aria-controls="p2"><svg viewBox="0 0 10 10" width="10" height="10" fill="none" stroke="#212121" stroke-width="1.4"><path d="M3 1l4 4-4 4"/></svg><span>Analytics</span></button></div><p>Analytical cookies help us understand how visitors use the website, for example visitor numbers, bounce rate and traffic source.</p><div class="panel" id="p2"><div class="empty">No cookies to display.</div></div></div><div class="cat"><div class="ch"><button class="chev" aria-expanded="false" aria-controls="p3"><svg viewBox="0 0 10 10" width="10" height="10" fill="none" stroke="#212121" stroke-width="1.4"><path d="M3 1l4 4-4 4"/></svg><span>Performance</span></button></div><p>Performance cookies help us understand and analyse the key performance indexes of the website, to deliver a better experience for visitors.</p><div class="panel" id="p3"><div class="empty">No cookies to display.</div></div></div><div class="cat"><div class="ch"><button class="chev" aria-expanded="false" aria-controls="p4"><svg viewBox="0 0 10 10" width="10" height="10" fill="none" stroke="#212121" stroke-width="1.4"><path d="M3 1l4 4-4 4"/></svg><span>Advertisement</span></button></div><p>Advertisement cookies deliver visitors customised adverts based on the pages they visited before, and help analyse how effective campaigns are.</p><div class="panel" id="p4"><div class="empty">No cookies to display.</div></div></div></div>
-<div class="df"><button class="o" id="rj">Reject All</button><button class="o w" id="sp">Save My Preferences</button><button class="f" id="aa">Accept All</button></div></div></div>
-<script>(()=>{const ov=document.getElementById('ov'),K='ckconsent',last=()=>document.getElementById('ckb');
-const open=()=>{ov.hidden=false;document.body.style.overflow='hidden';document.getElementById('dx').focus()};
-const close=()=>{ov.hidden=true;document.body.style.overflow='';last().focus()};
-const save=v=>{try{localStorage.setItem(K,v)}catch(e){}close()};
-last().onclick=open;document.getElementById('dx').onclick=close;
-addEventListener('keydown',e=>{if(e.key==='Escape'&&!ov.hidden)close()});
-document.getElementById('rj').onclick=()=>save('rejected');document.getElementById('aa').onclick=()=>save('accepted');document.getElementById('sp').onclick=()=>save('custom');
-const sm=document.getElementById('sm'),cl=document.getElementById('cl');sm.onclick=()=>{const o=cl.classList.toggle('open');sm.textContent=o?'Show less':'Show more';sm.setAttribute('aria-expanded',o)};
-document.querySelectorAll('.chev').forEach(b=>b.onclick=()=>{const c=b.closest('.cat'),o=c.classList.toggle('open');b.setAttribute('aria-expanded',o)});})();</script>
-<script>const tp=document.getElementById('top');addEventListener('scroll',()=>tp.classList.toggle('show',scrollY>300));</script>
+<button class="top" id="top" aria-label="Til toppen"><svg viewBox="0 0 18 22" fill="none" stroke="#fff" stroke-width="1.6"><path d="M9 21V2M2 9l7-7 7 7"/></svg></button>
+<button class="cookie" id="consent-button" type="button" aria-haspopup="dialog" aria-label="Samtykkeinnstillinger"><img src="images/cookie.png" alt="" width="44" height="44"></button>
+<div class="consent-overlay" id="consent-overlay" hidden><section class="consent-dialog" role="dialog" aria-modal="true" aria-labelledby="consent-title">
+<div class="consent-heading"><h2 id="consent-title">Samtykkeinnstillinger</h2><button id="consent-close" type="button" aria-label="Lukk">×</button></div>
+<div class="consent-body"><p>Her kan du velge om vi skal laste inn eksterne tjenester. Du kan endre valget ditt når som helst med knappen nederst til venstre.</p>
+<section><h3>Nødvendige innstillinger <span>Alltid aktive</span></h3><p>Vi lagrer samtykkevalget i nettleseren din. Kontaktskjemaet bruker en nødvendig øktinformasjonskapsel for å beskytte innsendingen. Skrifttyper og bilder lastes fra denne nettsiden.</p></section>
+<section><label class="consent-option" for="consent-functional"><span>Funksjonelle tjenester – Google Maps</span><input id="consent-functional" type="checkbox"></label><p>Google Maps lastes bare når du tillater det. Nettleseren din vil da koble til Google. Du kan bruke nettstedet og kontakte oss uten kartet.</p></section>
+<p>Vi har ikke lagt inn analyse- eller annonseringsverktøy. Les mer om <a href="cookie-policy.html">informasjonskapsler</a> og <a href="personvern.html">personvern</a>.</p></div>
+<div class="consent-actions"><button id="consent-reject" type="button">Kun nødvendige</button><button id="consent-save" type="button">Lagre valget mitt</button><button class="primary" id="consent-accept" type="button">Tillat alle</button></div>
+</section></div>
+<script src="site.js" defer></script>
 </body></html>
