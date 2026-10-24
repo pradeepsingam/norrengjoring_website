@@ -43,6 +43,8 @@ tests also disable the mail transport, so they cannot deliver messages.
 Required images and both font families are hosted locally. Five shared cleaning
 photos are reused across page heroes, intro cards and banners; identical copies
 and unused illustration fallbacks have been removed.
+Photographs use WebP. The two font families use self-hosted Latin WOFF2 subsets
+that include Norwegian characters; their license notices are in `fonts/`.
 Google Maps is optional and is loaded only after the visitor allows functional
 services or explicitly chooses to display the map. The preference is stored in
 browser local storage. It can be withdrawn through the preferences button.
@@ -58,3 +60,26 @@ python3 -m unittest discover -s tests -v
 node --check site.js
 php -l contact.php
 ```
+
+## SEO and production domain
+
+The production origin is `https://www.norrengjoring.no/`. Every content page has
+an absolute canonical, its own title/description, Norwegian language metadata,
+social preview tags and factual JSON-LD. Service pages link to `tjenester.html`.
+The sitemap lists 13 content pages; the 404 page, contact API and redirect helpers
+are excluded. Keep `sitemap.xml` in sync when adding or removing pages.
+
+`.htaccess` redirects the production domain to HTTPS/www, `/index.html` to `/`,
+former WordPress page paths to their HTML replacements, and `/wp-sitemap.xml`
+to `/sitemap.xml`. Eight known WordPress image URLs also redirect to their
+local replacements. It also configures a real 404 error document, compression and
+asset cache headers. These rules were exercised on a local Apache server.
+If a trusted reverse proxy terminates TLS, configure HTTPS detection on the
+hosting server so it does not redirect already-secure requests repeatedly.
+The local PHP development server does not process `.htaccess`.
+
+After deployment, verify the live HTTP responses, canonical URLs, structured
+data and mail delivery. Verify this exact property in Google Search Console
+and submit `https://www.norrengjoring.no/sitemap.xml`. A sitemap or valid markup
+does not guarantee indexing or rich-result display. No ranking or traffic
+improvement has been measured yet.

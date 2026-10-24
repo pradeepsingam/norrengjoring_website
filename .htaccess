@@ -1,5 +1,23 @@
 <IfModule mod_rewrite.c>
 RewriteEngine On
+# Canonical production host; localhost and preview hosts are left alone.
+RewriteCond %{HTTP_HOST} ^(?:www\.)?norrengjoring\.no$ [NC]
+RewriteCond %{HTTPS} !=on [OR]
+RewriteCond %{HTTP_HOST} !^www\.norrengjoring\.no$ [NC]
+RewriteRule ^ https://www.norrengjoring.no%{REQUEST_URI} [R=301,L,NE]
+RewriteCond %{THE_REQUEST} \s/+index\.html(?:[?\s]) [NC]
+RewriteRule ^index\.html$ ./ [R=301,L]
+RewriteRule ^tjenester/?$ tjenester.html [R=301,L]
+RewriteRule ^wp-sitemap\.xml$ sitemap.xml [R=301,L]
+# Preserve image URLs used by the former WordPress site.
+RewriteRule ^wp-content/uploads/2022/01/NorRengjoring_logo-removebg-preview-770x292\.png$ images/NorRengjoring_logo-removebg-preview-770x292.png [R=301,L]
+RewriteRule ^wp-content/uploads/2022/01/cropped-NorRengjoring_logo-1-270x270\.png$ images/cropped-NorRengjoring_logo-1-270x270.png [R=301,L]
+RewriteRule ^wp-content/uploads/2024/02/Byggrengjoring-2-min\.png$ images/Byggrengjoring-2-min.webp [R=301,L]
+RewriteRule ^wp-content/uploads/2024/02/KontaktOss-scaled-1\.jpg$ images/cleaning-kitchen.webp [R=301,L]
+RewriteRule ^wp-content/uploads/2024/02/KontaktOss-scaled-2\.jpg$ images/cleaning-team.webp [R=301,L]
+RewriteRule ^wp-content/uploads/2024/02/KontaktOss-scaled-3\.jpg$ images/cleaning-supplies.webp [R=301,L]
+RewriteRule ^wp-content/uploads/2024/02/KontaktOss-scaled-4\.jpg$ images/floor-cleaning.webp [R=301,L]
+RewriteRule ^wp-content/uploads/2024/02/KontaktOss-scaled-5\.jpg$ images/office-cleaning.webp [R=301,L]
 RewriteRule ^om-oss/?$ om-oss.html [R=301,L]
 RewriteRule ^kontakt/?$ kontakt.html [R=301,L]
 RewriteRule ^daglig-renhold/?$ daglig-renhold.html [R=301,L]
@@ -11,4 +29,24 @@ RewriteRule ^byggrengjoring-2/?$ byggrengjoring-2.html [R=301,L]
 RewriteRule ^skuring-og-boning-av-gulv/?$ skuring-og-boning-av-gulv.html [R=301,L]
 RewriteRule ^our-team-7-2/?$ cookie-policy.html [R=301,L]
 RewriteRule ^personvern/?$ personvern.html [R=301,L]
+</IfModule>
+
+ErrorDocument 404 /404.html
+
+<IfModule mod_deflate.c>
+AddOutputFilterByType DEFLATE text/html text/css text/plain application/javascript application/json application/xml image/svg+xml
+</IfModule>
+<IfModule mod_expires.c>
+ExpiresActive On
+ExpiresByType image/webp "access plus 1 month"
+ExpiresByType image/png "access plus 1 month"
+ExpiresByType font/woff2 "access plus 1 month"
+</IfModule>
+<IfModule mod_headers.c>
+<FilesMatch "\.(?:css|js)$">
+Header set Cache-Control "public, max-age=0, must-revalidate"
+</FilesMatch>
+<FilesMatch "\.(?:md|py|txt)$">
+Header set X-Robots-Tag "noindex"
+</FilesMatch>
 </IfModule>

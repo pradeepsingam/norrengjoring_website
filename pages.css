@@ -31,7 +31,7 @@ background:#1a1a1a center/cover no-repeat}
 .hc-stat h3{margin:0 0 8px;font-size:21px;line-height:26px;font-weight:500;color:#000}
 .hc-stat p{margin:0;font-size:16px;line-height:26px;color:#a3a3a8}
 .hc-cta{position:relative;border-radius:18px;overflow:hidden;min-height:640px;display:flex;align-items:flex-end;
-background:#2b2b2e url("images/banner.jpg") center top/100% auto no-repeat}
+background:#2b2b2e url("images/banner.webp") center top/100% auto no-repeat}
 .hc-cta::before{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(43,43,46,0) 30%,#2b2b2e 62%)}
 .hc-cta .in{position:relative;padding:0 30px 46px;color:#fff;max-width:760px}
 .hc-cta h2{margin:0 0 18px;font-size:44px;line-height:50px;font-weight:400;letter-spacing:-.5px}

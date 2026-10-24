@@ -11,7 +11,8 @@
   });
   const page = location.pathname.split('/').pop() || 'index.html';
   navigation?.querySelectorAll('a').forEach(link => {
-    if (link.getAttribute('href') === page) link.setAttribute('aria-current', 'page');
+    const linkedPage = new URL(link.href).pathname.split('/').pop() || 'index.html';
+    if (linkedPage === page) link.setAttribute('aria-current', 'page');
   });
   document.addEventListener('click', event => {
     if (!event.target.closest('.site-header')) setMenu(false);

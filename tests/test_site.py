@@ -49,23 +49,26 @@ class StaticSiteTests(unittest.TestCase):
                     with self.subTest(css=path.name, reference=reference):
                         self.assertTrue((path.parent / unquote(url.path)).is_file())
 
-    def test_jpeg_files_contain_jpeg_data(self):
-        for path in (ROOT / 'images').glob('*.jpg'):
+    def test_photo_files_contain_webp_data(self):
+        photos = list((ROOT / 'images').glob('*.webp'))
+        self.assertGreaterEqual(len(photos), 5)
+        for path in photos:
             with self.subTest(image=path.name):
-                self.assertTrue(path.read_bytes().startswith(b'\xff\xd8\xff'))
+                data = path.read_bytes()
+                self.assertTrue(data.startswith(b'RIFF') and data[8:12] == b'WEBP')
 
     def test_pages_include_navigation_home_and_shared_behavior(self):
         for path in ROOT.glob('*.html'):
             text = path.read_text()
             with self.subTest(page=path.name):
                 self.assertIn('id="site-navigation"', text)
-                self.assertIn('href="index.html"', text)
+                self.assertIn('href="./"', text)
                 self.assertIn('src="site.js"', text)
                 self.assertNotIn('onerror=', text)
                 self.assertNotIn('https://www.norrengjoring.no/wp-content/', text)
 
     def test_all_old_page_routes_have_static_fallbacks(self):
-        slugs = ['om-oss', 'kontakt', 'daglig-renhold', 'hovedreingjoring',
+        slugs = ['om-oss', 'kontakt', 'tjenester', 'daglig-renhold', 'hovedreingjoring',
                  'flyttevask', 'dodbo', 'puss-og-rens', 'byggrengjoring-2',
                  'skuring-og-boning-av-gulv', 'our-team-7-2']
         redirects = (ROOT / '.htaccess').read_text()
