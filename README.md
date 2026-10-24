@@ -40,8 +40,9 @@ tests also disable the mail transport, so they cannot deliver messages.
 
 ## Assets and preferences
 
-Required images and both font families are hosted locally. Photos previously
-used as remote fallbacks are included as each page's intro and banner JPGs.
+Required images and both font families are hosted locally. Five shared cleaning
+photos are reused across page heroes, intro cards and banners; identical copies
+and unused illustration fallbacks have been removed.
 Google Maps is optional and is loaded only after the visitor allows functional
 services or explicitly chooses to display the map. The preference is stored in
 browser local storage. It can be withdrawn through the preferences button.
